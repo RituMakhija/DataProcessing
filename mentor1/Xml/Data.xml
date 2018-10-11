@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<data>
+  <header>
+    <constant>H</constant>
+    <batchno>4</batchno>
+    <processData>yyyy-MM-dd</processData>
+  </header>
+  <detail>
+    <constant>D</constant>
+    <AccountNumber>
+      <RJZF>10</RJZF>
+    </AccountNumber>
+    <amount>
+      <RJZF>10</RJZF>
+      <decimal>2</decimal>
+    </amount>
+  </detail>
+  <trailer>
+    <constant>T</constant>
+    <BatchCount>5</BatchCount>
+  </trailer>
+</data>
