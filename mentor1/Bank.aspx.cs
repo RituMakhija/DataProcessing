@@ -28,6 +28,7 @@ namespace mentor1
             string ProcessDate = string.Format("{0:yyyy-MM-dd}", TextBox2.Text);
             string query= "select * from Details where poid=" + POid + " and " + "ProcessDate='" + ProcessDate + "'";           
             string path = @"D:\Diksha\mentor1\mentor1\SaveData\" + POid + "_" + ProcessDate + ".txt";
+            string logPath = @"D:\Diksha\mentor1\mentor1\SaveData\logFile.txt";
             ToGetData toGetData = new ToGetData();
             DataTable dt = toGetData.Getting_Data(query);
             int count=dt.Rows.Count;
@@ -36,28 +37,45 @@ namespace mentor1
             {
                 if (!File.Exists(path))
                 {
+                    StreamWriter lsw = new StreamWriter(logPath, true);
+                    string logFileLines = "File " + POid + "_" + ProcessDate + ".txt" + " has been created. ";
+                    logFileLines += Environment.NewLine;
 
                     foreach (DataRow dr in dt.Rows)
-                    {
+                    {                       
                         StreamWriter sw = new StreamWriter(path, true);
                         string line = doc.Descendants("header").FirstOrDefault().Element("constant").Value + " ";
                         line += toGetData.LJZF(dr["BatchNo"].ToString(), Convert.ToInt32(doc.Descendants("header").FirstOrDefault().Element("batchno").Value)) + " ";
                         line += toGetData.checkDate(dr["ProcessDate"].ToString(), doc.Descendants("header").FirstOrDefault().Element("processData").Value) + " ";
                         line += Environment.NewLine;
+                        logFileLines += Environment.NewLine;
+                        logFileLines += "Header Part has been added for Batch Number:" + dr["BatchNo"].ToString() + ".";
+                        logFileLines += Environment.NewLine;
 
                         line += doc.Descendants("detail").FirstOrDefault().Element("constant").Value + " ";
                         line += toGetData.LJZF(dr["AccountNo"].ToString(), Convert.ToInt32(doc.Descendants("AccountNumber").FirstOrDefault().Element("RJZF").Value)) + " ";
                         line += toGetData.decimalconversion(dr["Amount"].ToString(),Convert.ToInt32(doc.Descendants("amount").FirstOrDefault().Element("decimal").Value),Convert.ToInt32(doc.Descendants("amount").FirstOrDefault().Element("RJZF").Value)) + " ";
                         line += Environment.NewLine;
+                        logFileLines += "Details Part has been added for Batch Number:" + dr["BatchNo"].ToString() + ".";
+                        logFileLines += Environment.NewLine;
 
                         line += doc.Descendants("trailer").FirstOrDefault().Element("constant").Value + " ";
                         line += toGetData.LJZF(count.ToString(), Convert.ToInt32(doc.Descendants("trailer").FirstOrDefault().Element("BatchCount").Value)) + " ";
                         sw.WriteLine(line);
                         sw.Close();
+                        logFileLines += "Trailer Part has been added for Batch Number:" + dr["BatchNo"].ToString() + ".";
+                        logFileLines += Environment.NewLine;
+                        
                     }
+                    logFileLines += Environment.NewLine;
+                    lsw.WriteLine(logFileLines);
+                    lsw.Close();
                 }
                 else
                 {
+                    StreamWriter lsw = new StreamWriter(logPath, true);
+                    string logFileLines = "File " + POid + "_" + ProcessDate + ".txt" + " has been updated. ";
+                    logFileLines += Environment.NewLine;
                     StreamWriter sw = new StreamWriter(path);
                     foreach (DataRow dr in dt.Rows)
                     {
@@ -65,18 +83,28 @@ namespace mentor1
                         line += toGetData.LJZF(dr["BatchNo"].ToString(), Convert.ToInt32(doc.Descendants("header").FirstOrDefault().Element("batchno").Value)) + " ";
                         line += toGetData.checkDate(dr["ProcessDate"].ToString(), doc.Descendants("header").FirstOrDefault().Element("processData").Value) + " ";
                         line += Environment.NewLine;
+                        logFileLines += Environment.NewLine;
+                        logFileLines += "Header Part has been added for Batch Number:" + dr["BatchNo"].ToString() + ".";
+                        logFileLines += Environment.NewLine;
 
                         line += doc.Descendants("detail").FirstOrDefault().Element("constant").Value + " ";
                         line += toGetData.LJZF(dr["AccountNo"].ToString(), Convert.ToInt32(doc.Descendants("AccountNumber").FirstOrDefault().Element("RJZF").Value)) + " ";
                         line += toGetData.decimalconversion(dr["Amount"].ToString(), Convert.ToInt32(doc.Descendants("amount").FirstOrDefault().Element("decimal").Value), Convert.ToInt32(doc.Descendants("amount").FirstOrDefault().Element("RJZF").Value)) + " ";
                         line += Environment.NewLine;
+                        logFileLines += "Details Part has been added for Batch Number:" + dr["BatchNo"].ToString() + ".";
+                        logFileLines += Environment.NewLine;
 
                         line += doc.Descendants("trailer").FirstOrDefault().Element("constant").Value + " ";
                         line += toGetData.LJZF(count.ToString(), Convert.ToInt32(doc.Descendants("trailer").FirstOrDefault().Element("BatchCount").Value)) + " ";
                         line += Environment.NewLine;
                         sw.WriteLine(line);
+                        logFileLines += "Trailer Part has been added for Batch Number:" + dr["BatchNo"].ToString() + ".";
+                        logFileLines += Environment.NewLine;
                     }
                     sw.Close();
+                    logFileLines += Environment.NewLine;
+                    lsw.WriteLine(logFileLines);
+                    lsw.Close();
                 }
             }
             else

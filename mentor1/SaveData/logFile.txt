@@ -1,0 +1,74 @@
+File 1000_2017-06-16.txt has been created. 
+
+Header Part has been added for Batch Number:2.
+Details Part has been added for Batch Number:2.
+Trailer Part has been added for Batch Number:2.
+
+Header Part has been added for Batch Number:3.
+Details Part has been added for Batch Number:3.
+Trailer Part has been added for Batch Number:3.
+
+Header Part has been added for Batch Number:4.
+Details Part has been added for Batch Number:4.
+Trailer Part has been added for Batch Number:4.
+
+Header Part has been added for Batch Number:5.
+Details Part has been added for Batch Number:5.
+Trailer Part has been added for Batch Number:5.
+
+
+File 1001_2017-06-16.txt has been created. 
+
+Header Part has been added for Batch Number:3.
+Details Part has been added for Batch Number:3.
+Trailer Part has been added for Batch Number:3.
+
+
+File 1001_2017-06-17.txt has been created. 
+
+Header Part has been added for Batch Number:2.
+Details Part has been added for Batch Number:2.
+Trailer Part has been added for Batch Number:2.
+
+Header Part has been added for Batch Number:1.
+Details Part has been added for Batch Number:1.
+Trailer Part has been added for Batch Number:1.
+
+Header Part has been added for Batch Number:5.
+Details Part has been added for Batch Number:5.
+Trailer Part has been added for Batch Number:5.
+
+
+File 1000_2017-06-15.txt has been created. 
+
+Header Part has been added for Batch Number:1.
+Details Part has been added for Batch Number:1.
+Trailer Part has been added for Batch Number:1.
+
+
+File 1000_2017-06-16.txt has been updated. 
+
+Header Part has been added for Batch Number:2.
+Details Part has been added for Batch Number:2.
+Trailer Part has been added for Batch Number:2.
+
+Header Part has been added for Batch Number:3.
+Details Part has been added for Batch Number:3.
+Trailer Part has been added for Batch Number:3.
+
+Header Part has been added for Batch Number:4.
+Details Part has been added for Batch Number:4.
+Trailer Part has been added for Batch Number:4.
+
+Header Part has been added for Batch Number:5.
+Details Part has been added for Batch Number:5.
+Trailer Part has been added for Batch Number:5.
+
+
+File 1001_2017-06-16.txt has been updated. 
+
+Header Part has been added for Batch Number:3.
+Details Part has been added for Batch Number:3.
+Trailer Part has been added for Batch Number:3.
+
+
